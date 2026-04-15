@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script>
+        window.onload = inicio;
+
+        let campo_nome, campo_media, campo_ifa, botao, campo_saida;
+
+        function inicio() {
+            campo_nome = document.getElementById('nome');
+
+            campo_media = document.getElementById('media');
+            let media = parseFloat(campo_media.value);
+
+            campo_ifa = document.getElementById('ifa');
+            let ifa = parseFloat(campo_ifa.value);
+
+            botao = document.getElementById('botao');
+            botao.addEventListener('click', verificar);
+
+            campo_saida = document.getElementById('saida');
+        }
+
+        function verificar() {
+            let nome = campo_nome.value;
+
+            mediaString = campo_media.value.replace('.', ',');
+            let media = parseFloat(campo_media.value.replace(',', '.'));
+           // let media = parseFloat(campo_media.value);
+
+            ifaString = campo.ifa.value.replace('.', ',');
+            let ifa = parseFloat(campo_ifa.value);
+
+
+            if (media >= 6.0 || ifa >= 6.0) {
+                campo_saida.innerHTML = `${nome}, aprovado com ${mediaString} pontos!`;
+            } else if (ifa >= 6.0){
+                campo_saida.innerHTML = `${nome}, aprovado com ${ifaString} pontos!`;
+            } else {
+                campo_saida.innerHTML = `${nome}, reprovado com ${mediaString} pontos!`;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <label for="">Nome:</label>
+    <input type="text" id="nome"><br>
+
+    <label for="">Média:</label>
+    <input type="text" id="media"><br>
+
+    <label for="">IFA:</label>
+    <input type="text" id="ifa"><br>
+
+    <button id="botao">Verificar</button>
+
+    <p id="saida"></p>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Lanche</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 90vw;
+        }
+
+        .image-section {
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .image-section img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .form-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .total {
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 2px solid #eee;
+        }
+    </style>
+
+    <script>
+        window.onload = inicio;
+
+        let hamb = 19.90, refri = 7.90, batata = 8.90;
+        let total = 0;
+
+        function inicio() {
+            hambT = document.getElementById('qtd-burger');
+            hambT.addEventListener('keyup', conta);
+
+            refriT = document.getElementById('qtd-refri');
+            refriT.addEventListener('keyup', conta);
+
+            batataT = document.getElementById('qtd-batata');
+            batataT.addEventListener('keyup', conta);
+
+        }
+
+
+        function conta() {
+            let hq = parseInt(hambT.value) || 0;
+            let rq = parseInt(refriT.value) || 0;
+            let bq = parseInt(batataT.value) || 0;
+
+
+            total = (hq * hamb) + (rq * refri) + (bq * batata);
+
+            valorConta = document.getElementById('valor-total');
+            valorConta.innerHTML = total;   
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="image-section">
+            <img src="img/nada.png" alt="Combo Lanche" id="pedido">
+        </div>
+
+        <div class="form-section">
+            <h2>Faça seu Pedido</h2>
+            <div class="form-group">
+                <label>Hambúrguer (R$ 19,90):</label>
+                <input type="number" id="qtd-burger">
+            </div>
+            <div class="form-group">
+                <label>Refrigerante (R$ 7,90):</label>
+                <input type="number" id="qtd-refri">
+            </div>
+            <div class="form-group">
+                <label>Batata Frita (R$ 8,90):</label>
+                <input type="number" id="qtd-batata">
+            </div>
+
+            <div class="total">
+                Total: R$ <span id="valor-total"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
