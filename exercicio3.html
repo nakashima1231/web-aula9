@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterando texto</title>
+    <script>
+        window.onload = inicio;
+
+        let expressao = '';
+
+        function inicio() {
+            let soma = document.getElementById('adicao');
+            soma.addEventListener('click', expressao);
+
+            let menos = document.getElementById('subtracao');
+            menos.addEventListener('click', expressao);
+
+            let dividir = document.getElementById('divisao');
+            dividir.addEventListener('click', expressao);
+
+            let vezes = document.getElementById('multiplicacao');
+            vezes.addEventListener('click', expressao);
+
+            let igual = document.getElementById('resultado');
+            igual.addEventListener('click', resultado);
+
+            let um = document.getElementById("um");
+            um.addEventListener('click', expressao);
+
+            let dois = document.getElementById("dois");
+            um.addEventListener('click', expressao);
+
+            let tres = document.getElementById("tres");
+            um.addEventListener('click', expressao);
+
+            let quatro = document.getElementById("quatro");
+            um.addEventListener('click', expressao);
+
+            let cinco = document.getElementById("cinco");
+            um.addEventListener('click', expressao);
+
+            let seis = document.getElementById("seis");
+            um.addEventListener('click', expressao);
+
+            let sete = document.getElementById("sete");
+            um.addEventListener('click', expressao);
+
+            let oito = document.getElementById("oito");
+            um.addEventListener('click', expressao);
+
+            let nove = document.getElementById("nove");
+            um.addEventListener('click', expressao);
+
+            let zero = document.getElementById("zero");
+            um.addEventListener('click', expressao);
+        }
+
+        function expressao() {
+            
+            resultado.innerHTML = expressao;
+        
+        
+        }
+
+        function resultado() {
+            conta = document.getElementById('resultado');
+            expressao = conta.textContent;
+
+            resultado = eval(expressao);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button type="button" id="um">1</button>
+    <button type="button" id="dois">2</button>
+    <button type="button" id="tres">3</button>
+    <button type="button" id="quatro">4</button>
+    <button type="button" id="cinco">5</button>
+    <button type="button" id="seis">6</button>
+    <button type="button" id="sete">7</button>
+    <button type="button" id="oito">8</button>
+    <button type="button" id="nove">9</button>
+    <button type="button" id="zero">0</button>
+
+
+    <button type="button" id="adicao">+</button>
+    <button type="button" id="subtracao">-</button>
+    <button type="button" id="divisao">/</button>
+    <button type="button" id="multiplicacao">*</button>
+    <button type="button" id="clear">C</button>
+    <button type="button" id="resultado">=</button>
+
+    <p id="resultado">testeteste</p>
+    
+    
+</body>
+
+</html>
