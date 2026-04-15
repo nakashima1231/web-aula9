@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Lanches</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            /* Fundo cinza claro igual ao exemplo */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Centraliza verticalmente na tela */
+        }
+
+        /* Container do Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Cria 2 colunas de tamanho igual */
+            gap: 20px;
+            /* Espaçamento de 20px entre os botões */
+            width: 50%;
+            /* Ocupa 70% da largura da tela */
+            max-width: 70vw;
+            /* Largura máxima para não ficar gigante em telas grandes */
+            padding: 20px;
+        }
+
+        /* Estilo dos Botões */
+        .grid-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            border-radius: 15px;
+            /* Bordas arredondadas igual ao exemplo */
+            overflow: hidden;
+            /* Garante que a imagem siga o arredondamento */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sombra suave */
+            transition: transform 0.2s, box-shadow 0.2s;
+            /* Efeito suave ao passar o mouse */
+        }
+
+        /* Efeito ao passar o mouse (Hover) */
+        .grid-button:hover {
+            transform: translateY(-5px);
+            /* Levanta o botão levemente */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Sombra mais intensa */
+        }
+
+        /* Estilo das Imagens dentro dos Botões */
+        .grid-button img {
+            width: 100%;
+            /* Imagem ocupa toda a largura do botão */
+            height: auto;
+            /* Mantém a proporção da imagem */
+            display: block;
+            /* Remove espaços extras abaixo da imagem */
+        }
+    </style>
+    <script>
+        window.onload = inicio;
+
+        let tempoEntrada, tempoSaida;
+
+        function inicio() {
+            btrf.addEventListener('mouseenter', entrada);
+            btrf.addEventListener('mouseleave', saida);
+        }
+
+        function entrada() {
+            tempoEntrada = Date.now();
+            console.log("entrada");
+            console.log(tempoEntrada);
+        }
+
+        function saida() {
+            tempoSaida = Date.now();
+            console.log("saida");
+            console.log(tempoSaida);
+            console.log((tempoSaida - tempoEntrada) / 1000);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <button class="grid-button" id="btrf">
+            <img src="img/batata_refri.png" alt="Combo 1: Batata Frita e Refresco">
+        </button>
+
+        <button class="grid-button">
+            <img src="https://i.imgur.com/P5jYmYm.jpeg" alt="Item 2: Hambúrguer">
+        </button>
+
+        <button class="grid-button">
+            <img src="https://i.imgur.com/uN6o3Y0.jpeg" alt="Combo 3: Hambúrguer, Batata Frita e Refresco">
+        </button>
+
+        <button class="grid-button">
+            <img src="https://i.imgur.com/O6Y4Y9f.jpeg" alt="Combo 4: Hambúrguer e Refresco">
+        </button>
+    </div>
+    <p id="resultado"></p>
+</body>
+
+</html>
